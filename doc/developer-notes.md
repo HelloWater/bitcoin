@@ -50,7 +50,7 @@ Do not submit patches solely to modify the style of existing code.
 [src/.clang-format](/src/.clang-format). You can use the provided
 [clang-format-diff script](/contrib/devtools/README.md#clang-format-diffpy)
 tool to clean up patches automatically before submission.
-  - Braces on new lines for namespaces, classes, functions, methods.
+  - Braces on new lines for classes, functions, methods.
   - Braces on the same line for everything else.
   - 4 space indentation (no tabs) for every block except namespaces.
   - No indentation for `public`/`protected`/`private` or for `namespace`.
@@ -85,8 +85,7 @@ Block style example:
 ```c++
 int g_count = 0;
 
-namespace foo
-{
+namespace foo {
 class Class
 {
     std::string m_name;
@@ -569,8 +568,7 @@ Source code organization
   - *Rationale*: Shorter and simpler header files are easier to read, and reduce compile time
 
 - Every `.cpp` and `.h` file should `#include` every header file it directly uses classes, functions or other
-  definitions from, even if those headers are already included indirectly through other headers. One exception
-  is that a `.cpp` file does not need to re-include the includes already included in its corresponding `.h` file.
+  definitions from, even if those headers are already included indirectly through other headers.
 
   - *Rationale*: Excluding headers because they are already indirectly included results in compilation
     failures when those indirect dependencies change. Furthermore, it obscures what the real code
@@ -586,11 +584,11 @@ Source code organization
 
 ```c++
 namespace mynamespace {
-    ...
+...
 } // namespace mynamespace
 
 namespace {
-    ...
+...
 } // namespace
 ```
 
